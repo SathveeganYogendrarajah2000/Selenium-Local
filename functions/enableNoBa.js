@@ -1,6 +1,6 @@
 const { By } = require("selenium-webdriver");
 
-async function enableNoBa(driver, url, provider) {
+async function enableNoBa(driver, url) {
   console.log(url);
   await driver.get(url); //Open the web page
   await driver.sleep(5000);
