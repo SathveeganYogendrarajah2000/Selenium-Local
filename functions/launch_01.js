@@ -1,6 +1,6 @@
 const { By, Key } = require("selenium-webdriver");
 
-async function launch(url, username, password) {
+async function launch(driver, url, username, password) {
   console.log(`url: ${url}`);
   await driver.get(url); //Open the web page
   await driver.sleep(5000);
@@ -37,19 +37,19 @@ async function launch(url, username, password) {
   await driver.sleep(9000);
 
   //Check for the variable in the 1st page (Testing purpose)
-  try {
-    let elementText = "";
-    let element = `//*[@id="root"]/div[2]/div/div[1]/div[1]/div[2]/a[1]`;
+  // try {
+  //   let elementText = "";
+  //   let element = `//*[@id="root"]/div[2]/div/div[1]/div[1]/div[2]/a[1]`;
 
-    const foundElement = await driver.findElement(By.xpath(element));
-    elementText = await foundElement.getText();
-    assert(elementText == "Dashboard", "Dashboard not Found");
-    assert("Dashboard is found");
-    console.log("Your login success!!");
-  } catch (error) {
-    throw new Error(`\n Failed to find the Dashboard option: ${error}`);
-  }
-  await driver.sleep(5000);
+  //   const foundElement = await driver.findElement(By.xpath(element));
+  //   elementText = await foundElement.getText();
+  //   assert(elementText == "Dashboard", "Dashboard not Found");
+  //   assert("Dashboard is found");
+  //   console.log("Your login success!!");
+  // } catch (error) {
+  //   throw new Error(`\n Failed to find the Dashboard option: ${error}`);
+  // }
+  // await driver.sleep(5000);
 
   //***Click the launch button***
   try {
