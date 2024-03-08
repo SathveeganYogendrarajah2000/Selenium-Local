@@ -1,6 +1,7 @@
 const chrome = require("selenium-webdriver/chrome");
 const { Builder } = require("selenium-webdriver");
 
+const login = require("./functions/login");
 const launch = require("./functions/launch_01");
 const terminate = require("./functions/terminate");
 
@@ -21,14 +22,17 @@ async function runScript() {
   // Create a new WebDriver instance
   const driver = await new Builder()
     .forBrowser("chrome")
-    .setChromeOptions(options)
+    // .setChromeOptions(options)
     .build();
 
-    // Launch the Master
-    await launch(driver, url, username, password);
+  // Login to the web page
+  await login(driver, url, username, password);
 
-    // Terminate the Master
-    await terminate(driver, url);
+  // Launch the Master
+  // await launch(driver, url);
+
+  // Terminate the Master
+  await terminate(driver, url);
 }
 
 runScript();
