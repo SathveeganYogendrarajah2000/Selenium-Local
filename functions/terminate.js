@@ -43,7 +43,7 @@ async function terminate(driver, url) {
   try {
     // const element = `/html/body/div[1]/div[2]/div/div[2]/div/div/div[3]/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div/div[8]/div/div/span[2]/svg[2]`;
     // const element = `//*[@id="dashboardTabs-tabpane-clusters"]/div[1]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div/div[8]/div/div/span[2]/svg[2]`;
-    const element = `(//*[name()='svg'][@data-testid='SSRTerminate'])[1]`
+    const element = `(//*[name()='svg'][@role='img'])[21]`;
     console.log(`Element: ${element}`);
     const termFound = await driver.findElement(By.xpath(element));
     console.log("Termination button found"); //To check the code
@@ -53,8 +53,8 @@ async function terminate(driver, url) {
     console.log("Termination button Clicked!"); //To check the code
 
     await driver.wait(async () => {
-        const isClicked = await termFound.getAttribute("class");
-        return isClicked.includes("clicked");
+      const isClicked = await termFound.getAttribute("class");
+      return isClicked.includes("clicked");
     }, 5000);
 
     await driver.sleep(5000); // time 5secs

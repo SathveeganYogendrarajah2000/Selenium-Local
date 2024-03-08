@@ -5,6 +5,7 @@ const login = require("./functions/login");
 const launch = require("./functions/launch_01");
 const enableNoBa = require("./functions/enableNoBa");
 const newNode = require("./functions/newNode");
+const clusterInfo = require("./functions/clusterInfo");
 const terminate = require("./functions/terminate");
 
 require("dotenv").config();
@@ -39,8 +40,11 @@ async function runScript() {
   // Add a new Node
   // await newNode(driver, url);
 
+  // Get Cluster Info
+  // await clusterInfo(driver, url);
+
   // Terminate the Master
-  // await terminate(driver, url);
+  await terminate(driver, url);
 }
 
 runScript();
