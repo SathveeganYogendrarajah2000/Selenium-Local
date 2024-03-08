@@ -51,6 +51,12 @@ async function terminate(driver, url) {
 
     termFound.click(); //Click the termination button
     console.log("Termination button Clicked!"); //To check the code
+
+    await driver.wait(async () => {
+        const isClicked = await termFound.getAttribute("class");
+        return isClicked.includes("clicked");
+    }, 5000);
+
     await driver.sleep(5000); // time 5secs
   } catch (error) {
     throw new Error(`\n Failed to click termination button: ${error}`);
@@ -58,6 +64,7 @@ async function terminate(driver, url) {
 
   // Accept the Action
   try {
+    driver.sleep(5000); // time 5secs
     const alertWindow = await driver.switchTo().alert();
     console.log("Alert window found"); //To check the code
     await driver.sleep(5000); // time 5secs

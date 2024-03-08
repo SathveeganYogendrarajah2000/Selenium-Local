@@ -3,6 +3,7 @@ const { Builder } = require("selenium-webdriver");
 
 const login = require("./functions/login");
 const launch = require("./functions/launch_01");
+const enableNoBa = require("./functions/enableNoBa");
 const terminate = require("./functions/terminate");
 
 require("dotenv").config();
@@ -31,8 +32,11 @@ async function runScript() {
   // Launch the Master
   // await launch(driver, url);
 
+  // Enable Node Balancer
+  await enableNoBa(driver, url, "aws");
+
   // Terminate the Master
-  await terminate(driver, url);
+  // await terminate(driver, url);
 }
 
 runScript();
