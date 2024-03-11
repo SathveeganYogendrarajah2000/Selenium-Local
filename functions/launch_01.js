@@ -130,12 +130,11 @@ async function launch(driver, url) {
   try {
     // default to the aws case
     let launch = `//*[@id="root"]/div[2]/div/div[2]/div/div/div[2]/div/button`;
-    
+
     const launchFound = await driver.findElement(By.xpath(launch));
     await launchFound.click();
     console.log("Clicked Launch button");
-    await driver.sleep(180000); //3 minutes
-    
+    await driver.sleep(150000); //3 minutes
   } catch (error) {
     throw new Error(`\n Failed to click Launch button: ${error}`);
   }
