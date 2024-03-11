@@ -41,9 +41,8 @@ async function terminate(driver, url) {
 
   //Terminate the master
   try {
-    // const element = `/html/body/div[1]/div[2]/div/div[2]/div/div/div[3]/div[1]/div[1]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div/div[8]/div/div/span[2]/svg[2]`;
-    // const element = `//*[@id="dashboardTabs-tabpane-clusters"]/div[1]/div[1]/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div/div[8]/div/div/span[2]/svg[2]`;
-    const element = `(//*[name()='svg'][@role='img'])[21]`;
+    // const element = `(//*[name()='svg'][@role='img'])[21]`;
+    const element = `//span[@class='ServerStatusRenderer_actions__tSK4F']//*[name()='svg'][4]`;
     console.log(`Element: ${element}`);
     const termFound = await driver.findElement(By.xpath(element));
     console.log("Termination button found"); //To check the code
@@ -52,10 +51,10 @@ async function terminate(driver, url) {
     termFound.click(); //Click the termination button
     console.log("Termination button Clicked!"); //To check the code
 
-    await driver.wait(async () => {
-      const isClicked = await termFound.getAttribute("class");
-      return isClicked.includes("clicked");
-    }, 5000);
+    // await driver.wait(async () => {
+    //   const isClicked = await termFound.getAttribute("class");
+    //   return isClicked.includes("clicked");
+    // }, 5000);
 
     await driver.sleep(5000); // time 5secs
   } catch (error) {
@@ -65,6 +64,8 @@ async function terminate(driver, url) {
   // Accept the Action
   try {
     driver.sleep(5000); // time 5secs
+    // Wait for the alert to appear
+    // await driver.wait(until.alertIsPresent());
     const alertWindow = await driver.switchTo().alert();
     console.log("Alert window found"); //To check the code
     await driver.sleep(5000); // time 5secs

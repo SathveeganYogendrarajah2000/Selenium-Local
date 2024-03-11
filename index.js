@@ -20,12 +20,13 @@ async function runScript() {
 
   // Set Chrome options
   const options = new chrome.Options();
-  options.addArguments("--headless"); // Run Chrome in headless mode
+  // options.addArguments("--headless"); // Run Chrome in headless mode
+  options.addArguments("--start-maximized"); // Start Chrome maximized
 
   // Create a new WebDriver instance
   const driver = await new Builder()
     .forBrowser("chrome")
-    // .setChromeOptions(options)
+    .setChromeOptions(options)
     .build();
 
   // Login to the web page
