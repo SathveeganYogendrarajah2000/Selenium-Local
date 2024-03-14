@@ -40,11 +40,11 @@ async function enableNoBa(driver, url) {
     await driver.sleep(5000);
     //***Select Instance Image****
     if (check === "Manual Choice") {
-      const imageXpath = `//*[@id="spawner-node-tabs-tabpane-manualLB"]/div/div[4]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
-      // const imageXpath = `//div[.='casfs-plus-ng-2.0.30-2024-01-19-040219']`
-      const name = await driver.findElement(By.xpath(imageXpath)).getText();
+      const imageAL = `//*[@id="spawner-node-tabs-tabpane-manualLB"]/div/div[4]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+      const imageEL9 = `//*[@id="spawner-node-tabs-tabpane-manualLB"]/div/div[4]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+      const name = await driver.findElement(By.xpath(imageEL9)).getText();
       console.log(name);
-      await driver.findElement(By.xpath(imageXpath)).click();
+      await driver.findElement(By.xpath(imageEL9)).click();
     }
     console.log("Selected the Instance image Type");
   } catch (error) {
@@ -122,16 +122,16 @@ async function enableNoBa(driver, url) {
   //   }
 
   // give random value to soft limit
-//   try {
-//     const softLimitInput = await driver.findElement(By.id("softLimit"));
-//     const randomValue = 15;
+  //   try {
+  //     const softLimitInput = await driver.findElement(By.id("softLimit"));
+  //     const randomValue = 15;
 
-//     // Enter the random value into the input field
-//     await softLimitInput.sendKeys(randomValue.toString());
-//     console.log("Entered random value:", randomValue);
-//   } catch (error) {
-//     console.error("Failed to find or enter value in input field:", error);
-//   }
+  //     // Enter the random value into the input field
+  //     await softLimitInput.sendKeys(randomValue.toString());
+  //     console.log("Entered random value:", randomValue);
+  //   } catch (error) {
+  //     console.error("Failed to find or enter value in input field:", error);
+  //   }
 
   //Click Launch Node Balancer
   try {

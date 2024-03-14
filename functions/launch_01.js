@@ -37,9 +37,10 @@ async function launch(driver, url) {
 
   //***Select Instance Image***
   try {
-    let image = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+    let imageAL = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+    let imageEL9 = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[1]`;
 
-    const imageFound = await driver.findElement(By.xpath(image));
+    const imageFound = await driver.findElement(By.xpath(imageEL9));
     await imageFound.click();
     console.log("Selected the Instance image Type");
     await driver.sleep(5000);
@@ -73,9 +74,10 @@ async function launch(driver, url) {
 
   // //***Select Instance Orchestrator***
   try {
-    let orchestrator = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[8]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div`;
+    let orchestrator_sge = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[8]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div`;
+    let orchestrator_kube = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[8]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]/div`;
 
-    const orchestratorFound = await driver.findElement(By.xpath(orchestrator));
+    const orchestratorFound = await driver.findElement(By.xpath(orchestrator_sge));
     await orchestratorFound.click();
     console.log("Selected the Instance Orchestrator");
     await driver.sleep(5000);

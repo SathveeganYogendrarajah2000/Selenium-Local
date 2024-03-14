@@ -20,7 +20,7 @@ async function runScript() {
 
   // Set Chrome options
   const options = new chrome.Options();
-  options.addArguments("--headless"); // Enable headless mode
+  // options.addArguments("--headless"); // Enable headless mode
   options.addArguments("--no-sandbox");
   options.addArguments("--disable-dev-shm-usage");
   options.addArguments("window-size=1920,1080");
@@ -35,19 +35,19 @@ async function runScript() {
   await login(driver, url, username, password);
 
   // Launch the Master
-  await launch(driver, url);
+  // await launch(driver, url);
 
   // Enable Node Balancer
-  await enableNoBa(driver, url);
+  // await enableNoBa(driver, url);
 
   // Add a new Node
   await newNode(driver, url);
 
   // Get Cluster Info
-  await clusterInfo(driver, url);
+  // await clusterInfo(driver, url);
 
   // Terminate the Master
-  await terminate(driver, url);
+  // await terminate(driver, url);
 }
 
 runScript();
