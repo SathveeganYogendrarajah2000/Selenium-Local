@@ -75,6 +75,8 @@ async function terminate(driver, url) {
     await driver.sleep(15000); //15 secs
   } catch (error) {
     throw new Error(`\n Failed to accept the termination action: ${error}`);
+  } finally {
+    await driver.quit();
   }
   console.log();
 }
