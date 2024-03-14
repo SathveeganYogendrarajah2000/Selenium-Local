@@ -40,9 +40,10 @@ async function newNode(driver, url) {
 
   //***Select Instance Image***
   try {
-    let image = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+    const imageAL = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[2]`;
+    const imageEl9 = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[2]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div[1]`;
 
-    const imageFound = await driver.findElement(By.xpath(image));
+    const imageFound = await driver.findElement(By.xpath(imageEl9));
     await imageFound.click();
     console.log("Selected the Instance image Type");
     await driver.sleep(5000);
@@ -63,16 +64,16 @@ async function newNode(driver, url) {
   }
 
   //***Select Instance Subnet***        -----> There's only one subnet in the list so no need to select
-//   try {
-//     let subnet = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[6]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div`;
+  //   try {
+  //     let subnet = `//*[@id="spawner-node-tabs-tabpane-manual"]/div/div[6]/div/div[2]/div/div[1]/div[2]/div[3]/div[2]/div/div/div`;
 
-//     const subnetFound = await driver.findElement(By.xpath(subnet));
-//     await subnetFound.click();
-//     console.log("Selected the Instance Subnet");
-//     await driver.sleep(5000);
-//   } catch (error) {
-//     throw new Error(`\n Failed to click Instance subnet: ${error}`);
-//   }
+  //     const subnetFound = await driver.findElement(By.xpath(subnet));
+  //     await subnetFound.click();
+  //     console.log("Selected the Instance Subnet");
+  //     await driver.sleep(5000);
+  //   } catch (error) {
+  //     throw new Error(`\n Failed to click Instance subnet: ${error}`);
+  //   }
 
   //***Select Instance Reservation***(On Demand)
   try {
@@ -103,18 +104,18 @@ async function newNode(driver, url) {
   }
 
   // Advanced Options   ---->  left with default value
-//   try {
-//     let cacheDiskSize = await driver.findElement(By.id("cacheDiskSize"));
-//     const cacheValue = cacheDiskSize.getText();
-//     if (cacheValue == null || cacheValue == 500) {
-//       cacheValue.sendKeys("110", Key.RETURN);
-//     } else {
-//       console.log("Default Value was entered");
-//     }
-//     console.log("Checked the disk size of Cache");
-//   } catch (error) {
-//     throw new Error(`\n Failed to give correct cache size: ${error}`);
-//   }
+  //   try {
+  //     let cacheDiskSize = await driver.findElement(By.id("cacheDiskSize"));
+  //     const cacheValue = cacheDiskSize.getText();
+  //     if (cacheValue == null || cacheValue == 500) {
+  //       cacheValue.sendKeys("110", Key.RETURN);
+  //     } else {
+  //       console.log("Default Value was entered");
+  //     }
+  //     console.log("Checked the disk size of Cache");
+  //   } catch (error) {
+  //     throw new Error(`\n Failed to give correct cache size: ${error}`);
+  //   }
 
   //*** Click the Launch button***
   try {

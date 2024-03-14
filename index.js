@@ -44,10 +44,10 @@ async function runScript() {
   await newNode(driver, url);
 
   // Get Cluster Info
-  // await clusterInfo(driver, url);
+  await clusterInfo(driver, url);
 
   // Terminate the Master
-  // await terminate(driver, url);
+  await terminate(driver, url);
 }
 
 runScript();
